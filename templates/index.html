@@ -2,8 +2,6 @@
 {% block container %}
 {% import "_macros.html" as macros%}
 
-
-
 <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
     <table class="w-full text-sm text-left rtl:text-right text-body">
         <thead class="bg-neutral-secondary-soft border-b border-default">
@@ -44,7 +42,7 @@
                     <a href="#" class="font-medium text-fg-brand hover:underline">Modificar</a>
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-fg-brand hover:underline">Detalles</a>
+                    <a href="detalles?id={{ alumn.id }}" class="font-medium text-fg-brand hover:underline">Detalles</a>
                 </td>
                 <td class="px-6 py-4">
                     <a href="#" class="font-medium text-fg-brand hover:underline">Eliminar</a>
