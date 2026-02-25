@@ -3,6 +3,7 @@
 {% import "_macros.html" as macros%}
 
 <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
+    <a href="Alumnos" class="font-medium text-fg-brand hover:underline">Agregar nuevo</a>
     <table class="w-full text-sm text-left rtl:text-right text-body">
         <thead class="bg-neutral-secondary-soft border-b border-default">
             <tr>
@@ -10,10 +11,13 @@
                     Nombre
                 </th>
                 <th scope="col" class="px-6 py-3 font-medium">
-                    A. Paterno
+                    Apellidos
                 </th>
                 <th scope="col" class="px-6 py-3 font-medium">
                     Email
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Teléfono
                 </th>
                 <th scope="col" class="px-6 py-3 font-medium">
                     Modiicar
@@ -33,19 +37,22 @@
                     {{alumn.nombre}}
                 </th>
                 <td class="px-6 py-4">
-                    {{alumn.apaterno}}
+                    {{alumn.apellidos}}
                 </td>
                 <td class="px-6 py-4">
                     {{alumn.email}}
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-fg-brand hover:underline">Modificar</a>
+                    {{alumn.telefono}}
+                </td>
+                <td class="px-6 py-4">
+                    <a href="modificar?id={{ alumn.id }}" class="font-medium text-fg-brand hover:underline">Modificar</a>
                 </td>
                 <td class="px-6 py-4">
                     <a href="detalles?id={{ alumn.id }}" class="font-medium text-fg-brand hover:underline">Detalles</a>
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-fg-brand hover:underline">Eliminar</a>
+                    <a href="eliminar?id={{ alumn.id }}" class="font-medium text-fg-brand hover:underline">Eliminar</a>
                 </td>
             </tr>
             {% endfor %}

@@ -6,6 +6,9 @@
     {{form.csrf_token}}
     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
     <div>
+        {{macros.camposNuevos(form.id, class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body")}}
+    </div>
+    <div>
         {{macros.camposNuevos(form.nombre, class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body")}}
     </div>
     <div>
@@ -17,7 +20,7 @@
     <div>
         {{macros.camposNuevos(form.telefono, class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body")}}
     </div>
-    <button type="submit" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Agregar</button>    
+    <button type="submit" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Eliminar</button>        
 </form>
 
 {% endblock %}
