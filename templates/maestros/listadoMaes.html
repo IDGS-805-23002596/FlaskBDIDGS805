@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block container %}
+{% import "_macros.html" as macros%}
+
+<div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
+    <a href="/maestros/insertar" class="font-medium text-fg-brand hover:underline">Agregar nuevo</a>
+    <table class="w-full text-sm text-left rtl:text-right text-body">
+        <thead class="bg-neutral-secondary-soft border-b border-default">
+            <tr>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Nombre
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Apellidos
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Especialidad
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Email
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Modiicar
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Detalles
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Eliminar
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+          {% for maestr in maestros %}
+            <tr class="odd:bg-neutral-primary even:bg-neutral-secondary-soft border-b border-default">
+                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
+                    {{maestr.nombre}}
+                </th>
+                <td class="px-6 py-4">
+                    {{maestr.apellidos}}
+                </td>
+                <td class="px-6 py-4">
+                    {{maestr.especialidad}}
+                </td>
+                <td class="px-6 py-4">
+                    {{maestr.email}}
+                </td>
+                <td class="px-6 py-4">
+                    <a href="/maestros/modificar?matricula={{ maestr.matricula }}" class="font-medium text-fg-brand hover:underline">Modificar</a>
+                </td>
+                <td class="px-6 py-4">
+                    <a href="/maestros/detalles?matricula={{ maestr.matricula }}" class="font-medium text-fg-brand hover:underline">Detalles</a>
+                </td>
+                <td class="px-6 py-4">
+                    <a href="/maestros/eliminar?matricula={{ maestr.matricula }}" class="font-medium text-fg-brand hover:underline">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

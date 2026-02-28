@@ -9,6 +9,11 @@ class UserForm2(Form):
         validators.DataRequired(message="El campo es requerido"),
         validators.length(min=4, max=10, message="Ingrese un valor valido")
     ])
+    matricula = IntegerField("Matricula")
+    nombre=StringField("Nombre", [
+        validators.DataRequired(message="El campo es requerido"),
+        validators.length(min=4, max=10, message="Ingrese un valor valido")
+    ])
     apellidos=StringField("Apellidos", [
         validators.DataRequired(message="El campo es requerido")
     ])
@@ -20,3 +25,8 @@ class UserForm2(Form):
         validators.DataRequired(message="El campo es requerido"),
         validators.Email(message="Ingrese correo válido")
     ])
+    especialidad=EmailField("Especialidad", [
+        validators.DataRequired(message="El campo es requerido"),
+        validators.Email(message="Ingrese correo válido")
+    ])
+    
