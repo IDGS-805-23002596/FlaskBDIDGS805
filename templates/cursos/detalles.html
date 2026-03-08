@@ -1,0 +1,55 @@
+{% extends "layout.html" %} {% block container %}
+
+<a href="/cursos" class="text-white bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-xs px-3 py-1.5 focus:outline-none">Salir</a>
+<div  class="relative bg-neutral-primary-soft max-w-xs w-full p-6 border border-default rounded-base shadow-xs">
+    <div class="flex items-center justify-between mb-4">
+        <h5 class="text-xl font-semibold leading-none text-heading">Resumen del curso: {{nombre}}</h5>
+   </div>
+    <div class="flex items-center justify-between mb-2">
+        <h6 class="text-xl font-semibold leading-none text-heading">Impartido por el profesor: {{maestro.nombre}}</h6>
+   </div>
+   <table class="w-full text-sm text-left rtl:text-right text-body">
+        <thead class="text-sm text-body border-b border-default">
+            <tr>
+                <th scope="col" class="px-6 py-3 bg-neutral-secondary-soft font-medium">
+                    Nombre
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Apellidos
+                </th>
+                <th scope="col" class="px-6 py-3 bg-neutral-secondary-soft font-medium">
+                    Teléfono
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Correo
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for alumno in alumnos %}
+        <tr class="border-b border-default">
+
+            <th class="px-6 py-4 font-medium text-heading whitespace-nowrap bg-neutral-secondary-soft">
+                {{ alumno.nombre }}
+            </th>
+
+            <td class="px-6 py-4">
+                {{ alumno.apellidos }}
+            </td>
+
+            <td class="px-6 py-4 bg-neutral-secondary-soft">
+                {{ alumno.telefono }}
+            </td>
+
+            <td class="px-6 py-4">
+                {{ alumno.email }}
+            </td>
+
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

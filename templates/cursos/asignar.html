@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block container %}
+{% import "_macros.html" as macros%}
+
+<h1 class="text-heading flex items-center text-5xl font-bold tracking-tight">Asignar alumnos al curso</h1>
+<a href="/cursos" class="text-white bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-xs px-3 py-1.5 focus:outline-none">Salir</a>
+<form action="" method="POST" novalidate class="max-w-sm mx-auto space-y-4">
+    {{ form.csrf_token }}
+    <input type="hidden" name="curso_id" value="{{ id }}"/>       
+    <div>
+        {{ macros.camposNuevos(form.alumno_id,
+            class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body") }}
+    </div>      
+    <button type="submit" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+        Agregar
+    </button>    
+</form>
+
+<h1 class="text-heading flex items-center text-5xl font-bold tracking-tight">Alumnos registrados</h1>
+<div class="relative overflow-x-auto bg-neutral-primary shadow-xs rounded-base border border-default">
+    <table class="w-full text-sm text-left rtl:text-right text-body">
+        <thead class="text-sm text-body border-b border-default">
+            <tr>
+                <th scope="col" class="px-6 py-3 bg-neutral-secondary-soft font-medium">
+                    Nombre
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Apellidos
+                </th>
+                <th scope="col" class="px-6 py-3 bg-neutral-secondary-soft font-medium">
+                    Teléfono
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Correo
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for alumno in alumnos %}
+        <tr class="border-b border-default">
+
+            <th class="px-6 py-4 font-medium text-heading whitespace-nowrap bg-neutral-secondary-soft">
+                {{ alumno.nombre }}
+            </th>
+
+            <td class="px-6 py-4">
+                {{ alumno.apellidos }}
+            </td>
+
+            <td class="px-6 py-4 bg-neutral-secondary-soft">
+                {{ alumno.telefono }}
+            </td>
+
+            <td class="px-6 py-4">
+                {{ alumno.email }}
+            </td>
+
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

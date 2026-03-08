@@ -17,8 +17,20 @@
 {%endif%}
 {%endmacro%}
  
-'''
-color de le tra en
-telwind es text-gray-900
-'''
+{% macro campoSelect(field, maestros) %}
+<h2 class="font-bold text-gray-800">{{ field.label }}</h2>
+
+<select name="{{ field.name }}"
+        class="block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs">
+
+    {% for maestro in maestros %}
+        <option value="{{ maestro.matricula }}"
+            {% if maestro.matricula == field.data %}selected{% endif %}>
+            {{ maestro.nombre }}
+        </option>
+    {% endfor %}
+
+</select>
+
+{% endmacro %}
  

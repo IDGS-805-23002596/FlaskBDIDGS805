@@ -2,11 +2,9 @@
 {% block container %}
 {% import "_macros.html" as macros%}
 
-<h1 class="text-heading flex items-center text-5xl font-bold tracking-tight">Listado de maestros</h1>
+<h1 class="text-heading flex items-center text-5xl font-bold tracking-tight">Listado de cursos</h1>
 <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
-    <a href="/maestros/insertar" class="text-white bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-xs px-3 py-1.5 focus:outline-none">
-        Agregar nuevo
-    </a>
+    <a href="/cursos/insertar" class="text-white bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-xs px-3 py-1.5 focus:outline-none">Agregar nuevo</a>
     <table class="w-full text-sm text-left rtl:text-right text-body">
         <thead class="bg-neutral-secondary-soft border-b border-default">
             <tr>
@@ -14,13 +12,13 @@
                     Nombre
                 </th>
                 <th scope="col" class="px-6 py-3 font-medium">
-                    Apellidos
+                    Descripción
                 </th>
                 <th scope="col" class="px-6 py-3 font-medium">
-                    Especialidad
+                    Maestro
                 </th>
                 <th scope="col" class="px-6 py-3 font-medium">
-                    Email
+                    Asignar
                 </th>
                 <th scope="col" class="px-6 py-3 font-medium">
                     Modificar
@@ -34,28 +32,28 @@
             </tr>
         </thead>
         <tbody>
-          {% for maestr in maestros %}
+          {% for cur in curso %}
             <tr class="odd:bg-neutral-primary even:bg-neutral-secondary-soft border-b border-default">
                 <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                    {{maestr.nombre}}
+                    {{cur.nombre}} 
                 </th>
                 <td class="px-6 py-3">
-                    {{maestr.apellidos}}
+                    {{cur.descripcion}}
                 </td>
                 <td class="px-6 py-3">
-                    {{maestr.especialidad}}
+                    {{ cur.maestro.nombre }} {{cur.maestro.apellidos}}
                 </td>
                 <td class="px-6 py-3">
-                    {{maestr.email}}
+                    <a href="/cursos/asignar?id={{ cur.id }}" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Asignar</a>
                 </td>
                 <td class="px-6 py-3">
-                    <a href="/maestros/modificar?matricula={{ maestr.matricula }}" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Modificar</a>
+                    <a href="/cursos/modificar?id={{ cur.id }}" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Modificar</a>
                 </td>
                 <td class="px-6 py-3">
-                    <a href="/maestros/detalles?matricula={{ maestr.matricula }}" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Detalles</a>
+                    <a href="/cursos/detalles?id={{ cur.id }}" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Detalles</a>
                 </td>
                 <td class="px-6 py-3">
-                    <a href="/maestros/eliminar?matricula={{ maestr.matricula }}" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Eliminar</a>
+                    <a href="/cursos/eliminar?id={{ cur.id }}" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Eliminar</a>
                 </td>
             </tr>
             {% endfor %}
